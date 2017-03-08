@@ -24,6 +24,10 @@ public class BubbleSort implements ISort{
 			n--;
 		}while(swapped);
 	}
-	
+	public static void main(String[] args) {
+		Integer[] arr ={7,3,4,6,2,1,7};
+		new BubbleSort().sort(arr, arr.length);
+		Utils.printArr(arr, "ц╟ещеепР");
+	}
 	
 }
