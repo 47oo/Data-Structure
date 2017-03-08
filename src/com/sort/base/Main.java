@@ -17,7 +17,8 @@ public class Main {
 	}
 	public static void main(String[] args) {
 		Integer [] arr  = {1,3,4,5,6,2,3,1};
-		new Main().selectSort(arr, arr.length);
-		Utils.printArr(arr, "—°‘Ò≈≈–Ú");
+		Student[] sarr = {new Student(1,"hh"),new Student(2,"bb"),new Student(0,"hb")};
+		new Main().selectSort(sarr, sarr.length);
+		Utils.printArr(sarr, "—°‘Ò≈≈–Ú");
 	}
 }
