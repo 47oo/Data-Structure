@@ -1,5 +1,11 @@
 package com.sort.util;
 
+import com.sort.base.ISort;
+/**
+ * 工具类
+ * @author 47
+ *
+ */
 public class Utils {
 	//交换数组中两个元素的位置
 	public static <T> void swap(T[] arr,int x,int y){
@@ -24,5 +30,12 @@ public class Utils {
 	//判断a是否小于b
 	public static<T extends Comparable<T>> boolean aLb(T a,T b){
 		return a.compareTo(b)<0;
+	}
+	//用于性能测试
+	public static<T extends Comparable<T>> void testTime(ISort is,T[] arr,String sortName){
+		long start = System.currentTimeMillis();
+		is.sort(arr, arr.length);
+		long end = System.currentTimeMillis();
+		System.out.println(sortName+" : "+(end -start));
 	}
 }
