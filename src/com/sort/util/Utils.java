@@ -31,6 +31,10 @@ public class Utils {
 	public static<T extends Comparable<T>> boolean aLb(T a,T b){
 		return a.compareTo(b)<0;
 	}
+	//判断 a是否等于b
+	public static<T extends Comparable<T>> boolean aEb(T a,T b){
+		return a.compareTo(b)==0;
+	}
 	//用于性能测试
 	public static<T extends Comparable<T>> void testTime(ISort is,T[] arr,String sortName){
 		long start = System.currentTimeMillis();

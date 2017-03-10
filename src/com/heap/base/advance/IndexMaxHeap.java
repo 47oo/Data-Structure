@@ -1,7 +1,5 @@
 package com.heap.base.advance;
 
-import java.awt.image.RescaleOp;
-
 import com.sort.util.Utils;
 
 public class IndexMaxHeap<T extends Comparable<T>> {
