@@ -24,6 +24,12 @@ public class BinaryTree<K extends Comparable<K>, V> {
 			this.left = null;
 			this.right = null;
 		}
+		public Node(Node node){
+			this.left = node.left;
+			this.right = node.right;
+			this.key = node.key;
+			this.value = node.value;
+		}
 	}
 
 	private Node root;
@@ -172,6 +178,38 @@ public class BinaryTree<K extends Comparable<K>, V> {
 		node.right = removeMaxKey(node.right);
 		return node;
 	}
+	//从二叉树中删除键值为key的节点
+	public void removeKey(K key){
+		root = removeKey(root,key);
+	}
+	private Node removeKey(Node node, K key) {
+		if(node==null){
+			return null;
+		}
+		if(Utils.aLb(key, node.key)){
+			node.left = removeKey(node.left,key);
+			return node;
+		}else if(Utils.aRb(key, node.key)){
+			node.right = removeKey(node.right,key);
+			return node;
+		}else{
+			if(node.left==null){
+				count--;
+				return node.right;
+			}
+			if(node.right==null){
+				return node.left;
+			}
+			//当左右节点都不为null的时候
+			Node successor = new Node(minKey(node.right));
+			count++;
+			
+			successor.right = removeMinKey(node.right);
+			successor.left = node.left;
+			count--;
+			return successor;
+		}
+	}
 
 	private V search(Node node, K key) {
 		if (node == null) {
@@ -238,7 +276,10 @@ public class BinaryTree<K extends Comparable<K>, V> {
 		System.out.println("====");
 		bt.levelOrder();
 		System.out.println("====");
-		bt.removeMaxKey();
-		System.out.println(bt.size());
+//		bt.removeMaxKey();
+//		System.out.println(bt.size());
+		bt.removeKey(1);
+		System.out.println("====");
+		bt.preOrder();
 	}
 }
