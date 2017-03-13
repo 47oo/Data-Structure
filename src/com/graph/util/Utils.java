@@ -5,10 +5,11 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import com.graph.basic.IGraph;
+import com.graph.basic.SparseGraph;
 
 public class Utils {
 	private static final String SINGLE_SPACE=" ";
-	public void readFileToLoadGraph(IGraph ig,File f){
+	public static void readFileToLoadGraph(IGraph ig,File f){
 		Scanner in = null;
 		try {
 			in = new Scanner(f);
@@ -27,5 +28,9 @@ public class Utils {
 			in.close();
 		}
 	}
-	
+	public static void main(String[] args) {
+		IGraph ig = new SparseGraph(13, false);
+		readFileToLoadGraph(ig,new File("G:/workspace_maven/Data Structure(Java)/file/G1.txt"));
+		System.out.println(ig.hasEdge(9, 10));
+	}
 }
