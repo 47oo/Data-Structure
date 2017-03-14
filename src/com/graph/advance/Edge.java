@@ -1,6 +1,7 @@
 package com.graph.advance;
+
 //做比较的时候可以直接使用Utils包下的东东
-public class Edge<T extends Comparable<T>> {
+public class Edge<T extends Comparable<T>> implements Comparable<T> {
 	//--------------
 	private int a; 
 	private int b;
@@ -25,16 +26,10 @@ public class Edge<T extends Comparable<T>> {
 	public int other(int x){
 		return x==a?b:a;
 	}
-	//this<other
-	public boolean smallToOther(Edge<T> e){
-		return weight.compareTo(e.weight())<0;
+
+	@Override
+	public int compareTo(T o) {
+		return weight.compareTo(o);
 	}
-	//this>other
-	public boolean bigToOther(Edge<T> e){
-		return weight.compareTo(e.weight())>0;
-	}
-	//this==other
-	public boolean equalToOther(Edge<T> e){
-		return weight.compareTo(e.weight())==0;
-	}
+
 }
