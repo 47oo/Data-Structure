@@ -1,17 +1,20 @@
 package com.graph.traverse;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
 import com.graph.basic.IGraph;
 import com.graph.basic.Iterator;
+import com.graph.basic.SparseGraph;
+import com.graph.util.Utils;
 
 public class Path {
 	private IGraph ig;
 	
 	private boolean[] visited;
-	
+	//from[a] = b  即表示a的上一个顶点是b
 	private int[] from;
 	
 	private void dfs(int v){
@@ -19,8 +22,10 @@ public class Path {
 		Iterator it = ig.iterator(v);
 		while(it.hasNext()){
 			int i = it.next();
-			from[i] = v;
-			dfs(i);
+			if(!visited[i]){
+				from[i] = v;
+				dfs(i);
+			}
 		}
 	}
 	/**
@@ -29,6 +34,7 @@ public class Path {
 	 * @param s    (start)  寻路的起点
 	 */
 	public Path(IGraph ig,int s){
+		this.ig = ig;
 		visited = new boolean[ig.V()];
 		from = new int[ig.V()];
 		for(int i=0;i<ig.V();i++){
@@ -70,5 +76,11 @@ public class Path {
 		if(a<0||a>=ig.V()){
 			throw new RuntimeException("超出查询范围");
 		}
+	}
+	public static void main(String[] args) {
+		IGraph ig = new SparseGraph(13, false);
+		Utils.readFileToLoadGraph(ig,new File("G:/workspace_maven/Data Structure(Java)/file/G1.txt"));
+		boolean is = new Path(ig,0).hasPath(12);
+		System.out.println(is);
 	}
 }

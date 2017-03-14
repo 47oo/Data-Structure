@@ -31,6 +31,6 @@ public class Utils {
 	public static void main(String[] args) {
 		IGraph ig = new SparseGraph(13, false);
 		readFileToLoadGraph(ig,new File("G:/workspace_maven/Data Structure(Java)/file/G1.txt"));
-		System.out.println(ig.hasEdge(9, 10));
+		System.out.println(ig.hasEdge(0, 3));
 	}
 }

@@ -90,7 +90,7 @@ public class SparseGraph implements IGraph{
 		}
 	}
 	@Override
-	public com.graph.basic.Iterator iterator(int v) {
+	public Iterator iterator(int v) {
 		
 		return new SGIterator(v);
 	}
