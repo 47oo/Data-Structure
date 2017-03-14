@@ -11,7 +11,11 @@ import com.graph.basic.IGraph;
 import com.graph.basic.Iterator;
 import com.graph.basic.SparseGraph;
 import com.graph.util.Utils;
-
+/**
+ * 仅支持无向图
+ * @author 47
+ *
+ */
 public class ShortPath {
 	
 	private IGraph ig;
