@@ -1,7 +1,7 @@
 package com.graph.advance;
 
 //做比较的时候可以直接使用Utils包下的东东
-public class Edge<T extends Comparable<T>> implements Comparable<T> {
+public class Edge<T extends Comparable<T>> implements Comparable<Edge<T>> {
 	//--------------
 	private int a; 
 	private int b;
@@ -28,8 +28,10 @@ public class Edge<T extends Comparable<T>> implements Comparable<T> {
 	}
 
 	@Override
-	public int compareTo(T o) {
-		return weight.compareTo(o);
+	public int compareTo(Edge<T> o) {
+		return weight.compareTo(o.weight);
 	}
+
+
 
 }
