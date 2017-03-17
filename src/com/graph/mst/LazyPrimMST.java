@@ -1,18 +1,24 @@
 package com.graph.mst;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.graph.advance.Edge;
 import com.graph.advance.IGraph;
 import com.graph.advance.Iterator;
 import com.heap.base.MinHeap;
-
+/**
+ * prim À„∑® ∆’¿˚ƒ∑À„∑®
+ * @author 47
+ *
+ * @param <T>
+ */
 public class LazyPrimMST<T extends Comparable<T>> {
-	private IGraph<T> ig;
+	private IGraph<Edge<T>> ig;
 	private MinHeap<Edge<T>> mh;
 	private boolean[] marked;
-	private List<Edge<T>> mst;
-	private String mstWeight;
+	private List<Edge<T>> mst = new ArrayList<>();
+	private String mstWeight="";
 	
 	private void visit(int v){
 		if(!marked[v]){
@@ -40,13 +46,12 @@ public class LazyPrimMST<T extends Comparable<T>> {
 				visit(e.b());
 			}
 		}
-		mstWeight = mst.get(0).weight()+" ";
 		for(int i=0;i<mst.size();i++){
 			mstWeight+= mst.get(i).weight()+" ";
 		}
 		mstWeight.trim();
 	}
-	public LazyPrimMST(IGraph<T> ig,MinHeap<Edge<T>> mh){
+	public LazyPrimMST(IGraph<Edge<T>> ig,MinHeap<Edge<T>> mh){
 		this.ig = ig;
 		this.mh = mh;
 		marked = new boolean[ig.V()];

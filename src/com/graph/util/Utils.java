@@ -41,7 +41,7 @@ public class Utils {
 			while(in.hasNextLine()){
 				String line = in.nextLine();
 				String[] arr = line.split(SINGLE_SPACE);
-				ig.addEdge(Integer.valueOf(arr[0]), Integer.valueOf(arr[1]),(T)arr[3]);
+				ig.addEdge(Integer.valueOf(arr[0]), Integer.valueOf(arr[1]),(T)arr[2]);
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
