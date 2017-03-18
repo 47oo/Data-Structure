@@ -21,6 +21,6 @@ public class SelectSort implements ISort{
 //		Integer [] arr  = {1,3,4,5,6,2,3,1};
 		Student[] sarr = {new Student(1,"hh"),new Student(2,"bb"),new Student(0,"hb")};
 		new SelectSort().sort(sarr, sarr.length);
-		Utils.printArr(sarr, "—°‘Ò≈≈–Ú");
+		Utils.printArr(sarr, "—°‘Ò");
 	}
 }
