@@ -6,6 +6,8 @@ import java.util.List;
 import com.graph.advance.DenseGraph;
 import com.graph.advance.Edge;
 import com.graph.advance.IGraph;
+import com.graph.path_shortest.BellmanFord;
+import com.graph.path_shortest.Dijkstra;
 import com.graph.util.Utils;
 import com.heap.base.MinHeap;
 
@@ -28,5 +30,13 @@ public class Test {
 		}
 		System.out.println();
 		System.out.println(lmst.result());
+		System.out.println("=======dijkstra============");
+		Dijkstra<Integer> da = new Dijkstra<>(ig, 0);
+		da.showPath(4);
+		System.out.println(da.shortestPathTo(4));
+		System.out.println("=======bellman==========");
+		BellmanFord<Integer> bf = new BellmanFord<>(ig, 0);
+		bf.showPath(4);
+		System.out.println(bf.shortestPathTo(4));
 	}
 }
