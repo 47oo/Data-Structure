@@ -56,7 +56,7 @@ public class DenseGraph<T extends Comparable<T>> implements IGraph<T> {
 	private class DGIterator extends Iterator<Edge<T>> {
 		private int index;
 		private Edge<T>[] varr;
-
+		private boolean flag;
 		public DGIterator(int s) {
 			varr = g[s];
 			index=-1;
@@ -66,16 +66,18 @@ public class DenseGraph<T extends Comparable<T>> implements IGraph<T> {
 		public boolean hasNext() {
 			for(index+=1;index<varr.length;index++){
 				if(varr[index]!=null){
+					flag = true;
 					break;
 				}else {
-					index = -1;
+					flag = false;
 				}
 			}
-			return index!=-1;
+			return flag;
 		}
 
 		@Override
 		public Edge<T> next() {
+			flag = false;
 			return varr[index];
 		}
 

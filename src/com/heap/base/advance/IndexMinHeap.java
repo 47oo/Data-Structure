@@ -8,10 +8,8 @@ public class IndexMinHeap<T extends Comparable<T>> {
 	private Integer[] indexes;
 	private Integer[] reserves;
 	private int count;
-	private int capacity;
 
 	public IndexMinHeap(int capacity) {
-		this.capacity = capacity;
 		this.count = 0;
 		data = new Object[capacity + 1];
 		indexes = new Integer[capacity + 1];
@@ -45,6 +43,7 @@ public class IndexMinHeap<T extends Comparable<T>> {
 			k =k/2;
 		}
 	}
+	@SuppressWarnings("unchecked")
 	public T removeMin(){
 		T min = (T)data[1];
 		Utils.swap(indexes,1,count);

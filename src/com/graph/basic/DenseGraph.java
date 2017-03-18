@@ -59,14 +59,16 @@ public class DenseGraph implements IGraph{
 			this.index =-1;
 		}
 		public boolean hasNext(){
+			boolean flag = true;
 			for(index+=1;index<varr.length;index++){
 				if(varr[index]){
+					flag = true;
 					break;
 				}else {
-					index = -1;
+					flag = false;
 				}
 			}
-			return index!=-1;
+			return flag;
 		}
 		//当 next为-1的时候,就是与当前顶点直接相连的数据都遍历完成了
 		public int next(){
